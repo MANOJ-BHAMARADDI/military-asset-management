@@ -31,15 +31,19 @@ const Signup = () => {
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.msg || "Signup failed");
+      setError(
+        err.response?.data?.msg ||
+          err.response?.data?.message ||
+          "Signup failed"
+      );
     }
   };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
       <h1
-        className="text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 text-transparent bg-clip-text"
-        
+        className="text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-700 via-green-500 to-yellow-400 text-transparent bg-clip-text"
+        style={{ letterSpacing: "2px" }}
       >
         Welcome To Military Asset Management System
       </h1>
