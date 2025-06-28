@@ -21,6 +21,7 @@ export default function App() {
       <Navbar />
       <div className="p-4">
         <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route

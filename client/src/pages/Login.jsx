@@ -36,6 +36,9 @@ const Login = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
+      <h1 className="text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 text-transparent bg-clip-text">
+        Welcome To Military Asset Management System
+      </h1>
       <h2 className="text-xl font-bold mb-4 text-center">Login</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -59,6 +62,12 @@ const Login = () => {
         >
           Login
         </button>
+        <p className="text-center text-sm mt-4">
+          Don't have an account?{" "}
+          <a href="/signup" className="text-blue-600 hover:underline">
+            Register
+          </a>
+        </p>
       </form>
     </div>
   );
