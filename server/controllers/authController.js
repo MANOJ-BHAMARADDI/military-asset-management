@@ -30,7 +30,6 @@ export const signup = async (req, res) => {
   }
 };
 
-
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -43,16 +42,14 @@ export const login = async (req, res) => {
 
     const token = generateToken(user);
 
-    res.status(200).json({
-      id: user._id,
+    res.json({
+      token,        // JWT token
       name: user.name,
-      email: user.email,
       role: user.role,
-      token,
+      // add other fields if needed
     });
   } catch (err) {
     console.error(err.message);
     res.status(500).json({ msg: "Server error during login" });
   }
 };
-  

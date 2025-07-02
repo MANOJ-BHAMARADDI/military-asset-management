@@ -8,7 +8,7 @@ import Purchases from "./pages/Purchases";
 import Transfers from "./pages/Transfers";
 import Assignments from "./pages/Assignments";
 import Expenditures from "./pages/Expenditures";
-import { AuthContext } from "./context/AuthContext.jsx";
+import { AuthContext } from "./context/AuthContext";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
