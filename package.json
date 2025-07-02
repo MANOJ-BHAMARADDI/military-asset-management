@@ -1,0 +1,24 @@
+{
+  "name": "military-asset-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development && nodemon server/server.js",
+    "start": "NODE_ENV=production && node server/server.js",
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MANOJ-BHAMARADDI/military-asset-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MANOJ-BHAMARADDI/military-asset-management/issues"
+  },
+  "homepage": "https://github.com/MANOJ-BHAMARADDI/military-asset-management#readme"
+}
