@@ -9,59 +9,62 @@ import Transfers from "./pages/Transfers";
 import Assignments from "./pages/Assignments";
 import Expenditures from "./pages/Expenditures";
 import { AuthContext } from "./context/AuthContext";
-
-const PrivateRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
-  return user ? children : <Navigate to="/login" />;
-};
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 export default function App() {
+  const { user } = useContext(AuthContext);
+
   return (
     <>
       <Navbar />
       <div className="p-4">
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route
+            path="/"
+            element={
+              user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/dashboard"
             element={
-              <PrivateRoute>
+              <ProtectedRoute>
                 <Dashboard />
-              </PrivateRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/purchases"
             element={
-              <PrivateRoute>
+              <ProtectedRoute allowedRoles={["admin", "logistics"]}>
                 <Purchases />
-              </PrivateRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/transfers"
             element={
-              <PrivateRoute>
+              <ProtectedRoute allowedRoles={["admin", "logistics"]}>
                 <Transfers />
-              </PrivateRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/assignments"
             element={
-              <PrivateRoute>
+              <ProtectedRoute allowedRoles={["admin", "commander"]}>
                 <Assignments />
-              </PrivateRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/expenditures"
             element={
-              <PrivateRoute>
+              <ProtectedRoute allowedRoles={["admin", "commander"]}>
                 <Expenditures />
-              </PrivateRoute>
+              </ProtectedRoute>
             }
           />
           <Route path="*" element={<Navigate to="/dashboard" />} />
