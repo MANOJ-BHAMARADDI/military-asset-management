@@ -16,7 +16,7 @@ router.post(
   createExpenditure
 );
 
-// All roles can get expenditures
+// Admin, Commander, and Logistics can get expenditures
 router.get(
   "/",
   authenticate,
